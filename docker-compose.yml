@@ -17,15 +17,6 @@ services:
       - APP_NAME
       - DATABASE_NAME
       - NODEJS_IP
-      - EMAIL_API_KEY
-      - EMAIL_DOMAIN
-      - MAP_BOX_API_KEY
-      - MAP_BOX_MAP_ID
-      - GOOGLE_API_KEY
-      - FACEBOOK_APP_ID
-      - FACEBOOK_SECRET
-      - FACEBOOK_NAMESPACE
-      - FACEBOOK_CALLBACK_URL
     ports: 
       - "8080:8080"
     links:

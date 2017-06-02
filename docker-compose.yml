@@ -1,0 +1,34 @@
+version: '3'
+services:
+  db_import:
+    build: db_import
+    links:
+      - mongodb.notinphilly.org 
+    depends_on:
+      - mongodb.notinphilly.org
+  mongodb.notinphilly.org:
+    image: mongo 
+    ports: 
+      - "27017:27017"
+  web: 
+    build: web 
+    environment:
+      - MONGO_DB_URL 
+      - APP_NAME
+      - DATABASE_NAME
+      - NODEJS_IP
+      - EMAIL_API_KEY
+      - EMAIL_DOMAIN
+      - MAP_BOX_API_KEY
+      - MAP_BOX_MAP_ID
+      - GOOGLE_API_KEY
+      - FACEBOOK_APP_ID
+      - FACEBOOK_SECRET
+      - FACEBOOK_NAMESPACE
+      - FACEBOOK_CALLBACK_URL
+    ports: 
+      - "8080:8080"
+    links:
+      - mongodb.notinphilly.org
+    depends_on:
+      - db_import 
